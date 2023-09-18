@@ -79,7 +79,6 @@
 @media (min-width: 768px) {
   .item {
     flex-direction: row;
-    margin: 5% 25%;
   }
 
   .item img {
