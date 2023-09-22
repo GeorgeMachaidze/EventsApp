@@ -1,15 +1,22 @@
-import { getFeaturedEvents } from "../dummy-data";
 import EventList from "../components/events/eventList";
 import EventsSearch from "../components/events/eventsSearch";
 import { Fragment } from "react";
+import { getFeaturedEvents } from "../helpers/api-util";
 
-function HomePage() {
-  const featuredEvents = getFeaturedEvents();
-
+function HomePage(props) {
   return (
     <Fragment>
-      <EventList items={featuredEvents} />
+      <EventList items={props.events} />
     </Fragment>
   );
+}
+
+export async function getStaticProps(context) {
+  const featuredEvents = await getFeaturedEvents();
+  return {
+    props: {
+      events: featuredEvents,
+    },
+  };
 }
 export default HomePage;
