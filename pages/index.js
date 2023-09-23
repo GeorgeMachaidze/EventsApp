@@ -17,6 +17,7 @@ export async function getStaticProps(context) {
     props: {
       events: featuredEvents,
     },
+    revalidate: 1800,
   };
 }
 export default HomePage;
